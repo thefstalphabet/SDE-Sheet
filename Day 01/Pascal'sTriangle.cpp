@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> res;
+        // iterating 0 to numRows
+        for (int i=0; i<numRows; i++){  
+            // creted a temp array to inserted inside res array
+            vector<int> temp;
+            for (int j=0; j<=i; j++){
+                // inserting 1 on 0th and last index of array
+                if (j==0 || j==i) temp.push_back(1);
+                else temp.push_back(res[i-1][j] + res[i-1][j-1]); 
+            }
+            res.push_back(temp);
+            temp.clear();
+           }
+        return res;
+        
+    }
+};
